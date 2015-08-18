@@ -1,0 +1,5 @@
+#
+#  This file contains Elements names which contains the analyses to be (re)calculated
+#
+AnalysisTests\STC_1
+AnalysisTests\STC_2
