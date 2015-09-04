@@ -56,6 +56,7 @@
     <Compile Include="AnalysesLogic\StatisticsInfo.cs" />
     <Compile Include="AnalysesLogic\AnalysisRunner.cs" />
     <Compile Include="AnalysesLogic\Statistics.cs" />
+    <Compile Include="Configuration.cs" />
     <Compile Include="Helpers\ExtensionMethods.cs" />
     <Compile Include="Helpers\TimeStampsGenerator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
