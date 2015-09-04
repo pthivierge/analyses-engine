@@ -106,7 +106,7 @@ ren "$(TargetDir)$(TargetName).all.pdb" "$(TargetName).pdb"
 :: Copy to buid folder
 ::----------------------------------------
 :copytoBuildFolder
-SET output="..\..\..\Build"
+SET output="..\..\..\AnalysesEngine_Compiled"
 if not exist "%25output%25" mkdir "%25output%25"
 if not exist "%25output%25\bin" mkdir "%25output%25\bin"
 

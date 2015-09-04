@@ -41,6 +41,8 @@ local.properties
 *.user
 *.sln.docstates
 *.DotSettings
+*.vshost.exe
+*.vshost.exe.config
 
 # Build results
 
