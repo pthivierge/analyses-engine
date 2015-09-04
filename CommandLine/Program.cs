@@ -42,39 +42,43 @@ namespace AnalysesEngine.CommandLine
     {
         private static void Main(string[] args)
         {
-            ILog _logger = LogManager.GetLogger(typeof (Program));
+            ILog _logger = LogManager.GetLogger(typeof(Program));
 
-            IEnumerable<string> elementNames=null;
-            
-
-                _logger.Info("Command Line Started"); // you could delete this line ... 
-
-                var options = new CommandLineOptions();
+            IEnumerable<string> elementNames = null;
 
 
-                // Checks for options passed in the command line
-                if (Parser.Default.ParseArguments(args, options))
-                {
-                    
-                    if(!File.Exists(options.ElementsFile))
-                        throw new FileNotFoundException("Required file with elements names does not exist");
+            _logger.Info("Command Line Started"); // you could delete this line ... 
 
-                    
-                    // retrieves lines in the passed file, filters out comments (# comment).
-                    elementNames = File.ReadLines(options.ElementsFile).ToList().Where(line=>!line.StartsWith("#"));
-
-                    var engine = new Core.AnalysesEngine();
-                    engine.RunCalculations(elementNames, options.StartTime.toDate(), options.EndTime.toDate(), options.Interval.ToEnum<TimeStampsGenerator.TimeStampsInterval>(), options.AFServerName, options.AFDatabaseName, options.AFThreadCount, options.AnalysesthreadCount, options.DataWriterDelay, options.OutputFile, options.EnableWrite);
+            var options = new CommandLineOptions();
 
 
-                    // exit ok
-                    Environment.Exit(0);
-                }
-                else
-                {
-                    // exit with error
-                    Environment.Exit(1);
-                }
+            // Checks for options passed in the command line
+            if (Parser.Default.ParseArguments(args, options))
+            {
+
+                // transfer option(s) to application level
+                Configuration.EnableAnalysisErrorOutput = options.EnableAnalysesErrorOutput;
+
+
+                if (!File.Exists(options.ElementsFile))
+                    throw new FileNotFoundException("Required file with elements names does not exist");
+
+
+                // retrieves lines in the passed file, filters out comments (# comment).
+                elementNames = File.ReadLines(options.ElementsFile).ToList().Where(line => !line.StartsWith("#"));
+
+                var engine = new Core.AnalysesEngine();
+                engine.RunCalculations(elementNames, options.StartTime.toDate(), options.EndTime.toDate(), options.Interval.ToEnum<TimeStampsGenerator.TimeStampsInterval>(), options.AFServerName, options.AFDatabaseName, options.AFThreadCount, options.AnalysesthreadCount, options.DataWriterDelay, options.OutputFile, options.EnableWrite);
+
+
+                // exit ok
+                Environment.Exit(0);
+            }
+            else
+            {
+                // exit with error
+                Environment.Exit(1);
+            }
 
         }
     }

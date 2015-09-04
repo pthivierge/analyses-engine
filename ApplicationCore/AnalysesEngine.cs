@@ -105,7 +105,7 @@ namespace AnalysesEngine.Core
             {
                 TimeSpan evaluationTime;
                 int evaluationErrorsCount;
-                var analysisRunner = new AnalysisRunner();
+                var analysisRunner = new AnalysisRunner(Configuration.EnableAnalysisErrorOutput);
 
                 var results = analysisRunner.Run(afAnalysis, aftimes, out evaluationTime, out evaluationErrorsCount);
 

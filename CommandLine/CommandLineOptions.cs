@@ -63,6 +63,9 @@ namespace AnalysesEngine.CommandLine
         [Option("EnableWrite", HelpText = "Enables writing calculation results into PI Data Archive.  if -f option is specified, writes into text files.  ex: --EnableWrite", DefaultValue = false, Required = false)]
         public bool EnableWrite { get; set; }
 
+        [Option("EnableAnalysesErrorOutput", HelpText = "Shows Analysis Error when evaluated", DefaultValue = false, Required = false)]
+        public bool EnableAnalysesErrorOutput { get; set; }
+
 
         [HelpOption]
         public string GetUsage()

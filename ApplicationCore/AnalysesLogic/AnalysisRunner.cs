@@ -72,7 +72,7 @@ namespace AnalysesEngine.Core
                 if (state.EvaluationError != null)
                 {
                     if (_debug)
-                        _logger.Error(analysis.Name, state.EvaluationError);
+                        _logger.ErrorFormat("Analyse in error at time: {3:s}  - {0} - at {1}, Error: {2}",analysis.Name, analysis.GetPath(), state.EvaluationError,time);
 
                     evaluationsErrorsCount += 1;
                 }
