@@ -14,11 +14,11 @@ See this example for details : https://pisquare.osisoft.com/message/28628#28628
 
 #Usage example
 
-AnalysesEngineCommandLine.exe -s TST-SRV-AF -d AFDB1 -e elementsToRecalc.txt --st 2014-08-15 --et 2015-07-14 --interval hourly --threadsCount 10 --AnalysesThreadsCount 10 -w 45
+    AnalysesEngineCommandLine.exe -s TST-SRV-AF -d AFDB1 -e elementsToRecalc.txt --st 2014-08-15 --et 2015-07-14 --interval hourly --threadsCount 10 --AnalysesThreadsCount 10 -w 45
 
-To enable writing calculation results in the PI Data Archive, use the --EnableWrite option.
+To enable writing calculation results in the PI Data Archive, use the **--EnableWrite** option.
 
-Instead of writing into PI, you could write into csv files, use the -f option to do so.
+Instead of writing into PI, you could write into csv files, use the **-f** option to do so.
 
 
 #Options
