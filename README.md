@@ -1,4 +1,4 @@
-# AnalysisEngine
+# Analyses Engine
 
 This is a command line application to demonstrate how to calculate AF analyses programmatically.
 
