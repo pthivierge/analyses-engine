@@ -109,11 +109,12 @@ namespace AnalysesEngine.Core
 
                 var results = analysisRunner.Run(afAnalysis, aftimes, out evaluationTime, out evaluationErrorsCount);
 
+                string prettyElementName = element.Parent != null ? string.Format("{0}\\{1}", element.Parent.Name, element.Name) : element.Name;
                 var stats = new StatisticsInfo()
                 {
                     AnalyseName = afAnalysis.Name,
                     Duration = evaluationTime,
-                    ElementName = string.Format("{0}\\{1}", element.Parent.Name, element.Name),
+                    ElementName = prettyElementName,
                     EvaluationsCount = aftimes.Count,
                     EvaluationsErrorCount = evaluationErrorsCount
 
