@@ -25,49 +25,24 @@ namespace AnalysesEngine.Core.Helpers
     public static class TimeStampsGenerator
     {
 
-        public enum TimeStampsInterval
-        {
-            Hourly,
-            Daily
-        }
-
-        public static List<DateTime> Get(TimeStampsInterval interval, DateTime startTime, DateTime endTime)
+         public static List<DateTime> Get(TimeSpan interval, DateTime startTime, DateTime endTime)
         {
 
             var dates = new List<DateTime>();
-
-            // sets the intervall
-            var step = 86400;
-            switch (interval)
-            {
-                case TimeStampsInterval.Hourly:
-                {
-                    step = 3600;
-                    break;
-                }
-                case TimeStampsInterval.Daily:
-                {
-                    step = 86400;
-                    break;
-                }
-                
-                default:
-                {
-                    step = 86400;
-                    break;
-                }
-
-            }
-
+            
             var currentTime = startTime;
-            while (currentTime<=endTime)
+            while (currentTime < endTime)
             {
                 dates.Add(currentTime);
-                currentTime = currentTime.AddSeconds(step);
+                currentTime = currentTime.AddSeconds(interval.TotalSeconds);
             }
 
+            dates.Add(endTime);
+            
             return dates;
         }
+
+
 
     }
 }

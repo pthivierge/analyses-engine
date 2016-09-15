@@ -45,8 +45,8 @@ namespace AnalysesEngine.CommandLine
         [Option("et", HelpText = "Calculation EndTime", Required = true)]
         public string EndTime { get; set; }
 
-        [Option("interval", HelpText = "Calculation interval. options: daily, hourly. default daily",DefaultValue = "hourly", Required = false)]
-        public string Interval { get; set; }
+        [Option("calcInterval", HelpText = "Calculation interval - defines the time step at which calculations will be carried out. The value is in seconds, default is one hour (3600s).",DefaultValue = 3600, Required = false)]
+        public int Interval { get; set; }
 
         [Option('t', "threadsCount", HelpText = "Threads Used for elements collections",DefaultValue = 1,Required = false)]
         public int AFThreadCount { get; set; }

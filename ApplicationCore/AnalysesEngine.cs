@@ -39,7 +39,7 @@ namespace AnalysesEngine.Core
        
         
         public void RunCalculations(IEnumerable<string> elementNames, DateTime startTime, DateTime endTime,
-            TimeStampsGenerator.TimeStampsInterval interval, string afServerName, string afDatabaseName
+            TimeSpan interval, string afServerName, string afDatabaseName
             , int afThreadCount, int analysesThreadCount, int dataWriterDelay, string outputFile, bool enableWrite)
         {
 

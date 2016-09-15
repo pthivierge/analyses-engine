@@ -68,7 +68,7 @@ namespace AnalysesEngine.CommandLine
                 elementNames = File.ReadLines(options.ElementsFile).ToList().Where(line => !line.StartsWith("#"));
 
                 var engine = new Core.AnalysesEngine();
-                engine.RunCalculations(elementNames, options.StartTime.toDate(), options.EndTime.toDate(), options.Interval.ToEnum<TimeStampsGenerator.TimeStampsInterval>(), options.AFServerName, options.AFDatabaseName, options.AFThreadCount, options.AnalysesthreadCount, options.DataWriterDelay, options.OutputFile, options.EnableWrite);
+                engine.RunCalculations(elementNames, options.StartTime.toDate(), options.EndTime.toDate(), TimeSpan.FromSeconds(options.Interval) , options.AFServerName, options.AFDatabaseName, options.AFThreadCount, options.AnalysesthreadCount, options.DataWriterDelay, options.OutputFile, options.EnableWrite);
 
 
                 // exit ok
